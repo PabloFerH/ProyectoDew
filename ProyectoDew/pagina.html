@@ -1,23 +1,139 @@
 <!DOCTYPE html>
-
 <html>
-<head>
-<title>RTSLN</title>
+    <head>
+        <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/css.css" type="text/css" rel="stylesheet" />
+        <link href="jquery-datapicker/jquery.timepicker.css" type="text/css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://use.fontawesome.com/d6e13e3774.js"></script>
+        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href='http://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	   <script src="https://code.jquery.com/jquery-1.12.0.js"></script>
+        <link rel="stylesheet" href="jquery-ui/jquery-ui.min.css">
+        <script src="jquery-ui/external/jquery/jquery.js"></script>
+        <script src="jquery-ui/jquery-ui.min.js"></script>
 
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="UTF-8" />
+        <script src="jquery-datapicker/jquery.timepicker.js"></script>
+        <script src="jquery-datapicker/jquery.timepicker.min.js"></script>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://use.fontawesome.com/d6e13e3774.js"></script>
+        <script src="js/eventos.js"></script>
+    </head>
+    <body>
+        
+        <div class="cabecera">
+            <div id="imgCabecera">
+                <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Español<span class="glyphicon glyphicon-chevron-down"  aria-hidden="true" id="iconoIdioma">
+                    </span></button>
+    <ul class="dropdown-menu" id="opcionesIdioma" role="menu" aria-labelledby="menu1">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="espanol">Español</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="ingles">Inglés</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#" id="valenciano">Valenciano</a></li>
+                    </ul>
+  </div>
+                <div id="tituloCabecera"></div>
+                <a href="#inicio">
+                <div id="botonTitulo">
+                    <span class="glyphicon glyphicon-chevron-down" id="flecha" aria-hidden="true">
+                    </span>
+                </div>
+                    </a>
+            </div>
+            
+        </div>
+        <div class="aside col-md-1" id="inicio">
+            <h2 id="reservas">RESERVAS</h2>
+            <form>
+    
+    <div class="group">      
+      <input type="text" name="salida" id="salida" required>
+      <label>Lugar de salida</label>
+    </div>
+      
+    <div class="group">      
+      <input type="text" name="destino" id="destino" required>
+      <label>Lugar de destino</label>
+    </div>
+                
+    <div class="group">      
+      <input type="text" name="precio" id="precio" required>
+      <label>Precio máximo</label>
+    </div>
+    
+    <div class="group">      
+      <input type="text" name="horaSalida" id="horaSalida" class="fechas" required/>
+      <label>Hora de salida</label>
+                </div>
+    <div class="group">    
+      <input type="text" name="horaLlegada" id="horaLlegada" class="fechas" required/>
+      <label>Hora de llegada</label>
+    </div>
+                
+   <div class="group">      
+      <input type="text" name="time" id="aerolinea"/>
+      <label>Aerolinea favorita</label>
+    </div>
+       
+<button type="submit" class="btn btn-primary">Consultar</button>         
+  </form>
+        </div>
+        <div class="contenedor col-md-11">
+            <div class="row" id="entrante">
+				<div class="col-md-12">
+					<div class="wrapper-title">
+						<div class="hr-sect">Servicios disponibles</div>
+					</div>
+				</div>
+			</div>
+            <div class="col-xs-2 fila2">
+					<div class="text-menu">
+						<ul class="list-unstyled">
+							<li>
+								<!--<h3>Puré de verduras</h3>
+								<p class="text">Lorem ipsum so much ipsum wow</p>
+								<p class="precio">3€</p>-->
+                                <div class="img" id="buscar"></div>
+							</li>
+							<!--<hr class="style4">-->
+							<li>
+								<!--<h3>Consulta de vuelos con billetes disponibles</h3>
+								<p class="text">Lorem ipsum so much ipsum wow</p>
+								<p class="precio">3€</p>-->
+                                <div class="img" id="reservaBillete"></div>
+							</li>
+							<!--<hr class="style4">-->
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-xs-6 fila2">
+					<div class="text-menu">
+						<ul class="list-unstyled">
+							<li>
+								<h3>Consulta de vuelos con billetes disponibles</h3>
+								<p class="text">Lorem ipsum so much ipsum wow</p>
+								<p class="precio">3€</p>
+							</li>
+							<hr class="style4">
+							<li>
+								<h3>Reserva de billete</h3>
+								<p class="text">Lorem ipsum so much ipsum wow</p>
+								<p class="precio">3€</p>
+							</li>
+							<hr class="style4">
+							
+						</ul>
+					</div>
+				</div>
+        </div>
+    
+    
+    </body>
 
-</head>
-
-<body>
 
 
-</body>
 </html>

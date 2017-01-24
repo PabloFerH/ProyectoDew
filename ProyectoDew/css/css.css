@@ -1,0 +1,397 @@
+html{
+     height: 100%;
+}
+
+body{
+   height: 100%;  
+}
+
+
+
+.cabecera{
+    width: 100%;
+    height: 100%;
+}
+
+#imgCabecera{
+    
+    background-image: url(../images/avionPortada.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+
+}
+
+#tituloCabecera{
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    width: 520px;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin: auto;
+    
+}
+
+#imgCabecera::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: #000;
+    opacity: 0.5;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.hr-sect {
+    display: flex;
+    flex-basis: 100%;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.8);
+    font-size: 40px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.hr-sect::before, .hr-sect::after {
+    content: "";
+    flex-grow: 1;
+    background: rgba(0, 0, 0, 0.35);
+    height: 1px;
+    font-size: 0px;
+    line-height: 0px;
+    margin: 0px 16px;
+}
+
+
+
+#botonTitulo{
+    width: 60px;
+    height: 60px;
+    position: relative;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  border: 2px solid #b1b1b1;
+    
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 1;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10%;
+    
+}
+
+
+
+span{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    
+    -webkit-filter: brightness(200); /* Safari 6.0 - 9.0 */
+    filter: brightness(200);
+}
+
+span.glyphicon.glyphicon-chevron-down#flecha {
+    font-size: 40px;
+}
+
+#iconoIdioma{
+    margin-left:10px;
+}
+.aside{
+   // height: 600px;
+    background-color: #171717;
+}
+#flecha{
+left:10px;
+top:10px;
+
+}
+#reservas{
+    margin-bottom: 40px;
+    color: white;
+    /* Safari */
+-webkit-transform: rotate(-90deg) translate(-100px);
+
+/* Firefox */
+-moz-transform: rotate(-90deg)  translate(-100px);
+
+/* IE */
+-ms-transform: rotate(-90deg)  translate(-100px);
+
+/* Opera */
+-o-transform: rotate(-90deg)  translate(-100px);
+    
+    
+
+}
+
+form{
+    transform:translate(-850px);
+}
+
+label{
+    color:#c7c7c7;
+}
+
+
+
+
+.group 			  { 
+  position:relative; 
+  margin-bottom:40px; 
+}
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-20px;
+  font-size:14px;
+  color:#5264AE;
+}
+input[type="text"] {
+    background-color: transparent;
+    color:white;
+}
+
+button.btn.btn-primary {
+    width: 100%;
+    margin-bottom: 20px;
+    height: 50px;
+}
+
+
+.btn-default{
+    position: absolute;
+    right: 0px;
+}
+
+button#menu1 {
+    width: 175px;
+    height: 40px;
+    border-radius: 0px;
+    border: 0px;
+    color: white;
+    background-color: rgba(0,0,0,0.3);
+    line-height: 25px;
+    font-size: 17px;
+}
+#opcionesIdioma{
+    right: 0px;
+    left: auto;
+    top: 38px;
+    background-color: rgba(0,0,0,0.6);
+    border: 0;
+    border-radius: 0;
+}
+#buscar{
+    background-image: url(../images/buscar.png);
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+     margin-top: 30px;
+    margin-bottom: 55px;
+    
+        position: relative;
+    left: 70px;
+}
+
+
+#reservaBillete{
+      background-image: url(../images/buscar.png);
+    width: 70px;
+    height: 70px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+     margin-top: 30px;
+    margin-bottom: 45px;
+    
+        position: relative;
+    left: 70px;
+    
+}
+
+
+#espanol{
+    color: rgba(255,255,255,0.75);
+}
+
+#espanol:hover{
+    color: rgba(0,0,0,0.75);
+}
+
+#ingles{
+    color: rgba(255,255,255,0.75);
+}
+
+#ingles:hover{
+    color: rgba(0,0,0,0.75);
+}
+
+#valenciano{
+    color: rgba(255,255,255,0.75);
+}
+
+#valenciano:hover{
+    color: rgba(0,0,0,0.75);
+}
+
+
+
+@media only screen and (max-width: 1320px){
+    .group > input{
+        width: 250px;
+    }
+    
+    .col-xs-6{
+        margin-left: 20px;
+    }
+}
+
+@media only screen and (max-width: 1120px){
+    .group > input{
+        width: 200px;
+    }
+    
+    .col-xs-6{
+        margin-left: 30px;
+    }
+    
+}
+
+@media only screen and (max-width: 991px){
+    button.btn.btn-primary {
+        width: 33%;
+    }
+    form{
+        text-align: center;
+    }
+    label{
+            left: 0;
+			right: 0;
+    }
+    #inicio{
+        height: 100px;
+    }
+    .group > input{
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .group > label{
+        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #reservas{
+       -ms-transform: rotate(0deg) translateY(20px); /* IE 9 */
+    -webkit-transform: rotate(0deg) translateY(20px); /* Chrome, Safari, Opera */
+    transform: rotate(0deg) translateY(20px);
+        text-align: center;
+        margin-top: 0;
+       
+    }
+}
+
+@media only screen and (max-width: 768px){
+    .col-xs-2{
+        margin-right: 30px;
+    }
+	
+	#imgCabecera{
+		background-image:url(../images/background-2.jpg)
+	}
+}
+
+@media only screen and (max-width: 600px){
+    .col-xs-2{
+        margin-right: 50px;
+    }
+    #buscar{
+        margin-bottom: 80px;
+    }
+}
+
+@media only screen and (max-width: 535px){
+    .col-xs-2{
+        margin-right: 70px;
+    }
+    #buscar{
+        margin-bottom: 100px;
+    }
+	#tituloCabecera{
+		display:none;
+	}
+}
+
+@media only screen and (max-width: 535px){
+    .col-xs-2{
+        margin-right: 70px;
+    }
+    #buscar{
+        margin-bottom: 150px;
+    }
+	#tituloCabecera{
+		display:none;
+	}
+}
+
+@media only screen and (max-width: 320px){
+    .col-xs-2{
+        margin-right: 50px;
+    }
+    #buscar{
+        margin-bottom: 150px;
+        left: 30px;
+    }
+    #reservaBillete{
+        left: 30px;
+    }
+    #tituloCabecera{
+        display:none;
+    }
+}
+
+
+
+/*800px*/
+/* el width minimo será 520*/
