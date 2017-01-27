@@ -1,0 +1,129 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema reservas
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema reservas
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `reservas` DEFAULT CHARACTER SET utf8 ;
+USE `reservas` ;
+
+-- -----------------------------------------------------
+-- Table `reservas`.`aerolínea`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`aerolínea` (
+  `idAerolínea` INT NOT NULL AUTO_INCREMENT,
+  `codigo` VARCHAR(45) NULL,
+  `nombre` VARCHAR(45) NULL,
+  PRIMARY KEY (`idAerolínea`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reservas`.`ciudad`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`ciudad` (
+  `idCiudad` INT NOT NULL AUTO_INCREMENT,
+  `nombre` VARCHAR(45) NULL,
+  `pais` VARCHAR(45) NULL,
+  PRIMARY KEY (`idCiudad`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reservas`.`aeropuerto`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`aeropuerto` (
+  `idAeropuerto` INT NOT NULL AUTO_INCREMENT,
+  `codigo` VARCHAR(45) NULL,
+  `nombre` VARCHAR(45) NULL,
+  `categoria` INT NULL,
+  `idCiudad` INT NOT NULL,
+  `idVueloGenerico` INT NOT NULL,
+  PRIMARY KEY (`idAeropuerto`),
+  INDEX `fk_aeropuerto_ciudad1_idx` (`idCiudad` ASC),
+  CONSTRAINT `fk_aeropuerto_ciudad1`
+    FOREIGN KEY (`idCiudad`)
+    REFERENCES `reservas`.`ciudad` (`idCiudad`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reservas`.`vueloGenerico`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`vueloGenerico` (
+  `idVueloGenerico` INT NOT NULL AUTO_INCREMENT,
+  `nVuelo` INT NULL,
+  `horaSalida` VARCHAR(45) NULL,
+  `horaLlegada` VARCHAR(45) NULL,
+  `precio` FLOAT UNSIGNED NULL,
+  `capacidad` INT UNSIGNED NULL,
+  `idAerolínea` INT NOT NULL,
+  `idAeropuerto` INT NOT NULL,
+  PRIMARY KEY (`idVueloGenerico`),
+  INDEX `fk_vueloGenerico_aerolínea1_idx` (`idAerolínea` ASC),
+  INDEX `fk_vueloGenerico_aeropuerto1_idx` (`idAeropuerto` ASC),
+  CONSTRAINT `fk_vueloGenerico_aerolínea1`
+    FOREIGN KEY (`idAerolínea`)
+    REFERENCES `reservas`.`aerolínea` (`idAerolínea`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_vueloGenerico_aeropuerto1`
+    FOREIGN KEY (`idAeropuerto`)
+    REFERENCES `reservas`.`aeropuerto` (`idAeropuerto`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reservas`.`vuelo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`vuelo` (
+  `idVuelo` INT NOT NULL AUTO_INCREMENT,
+  `fecha` VARCHAR(45) NULL,
+  `plazasLibres` INT NULL,
+  `idVueloGenerico` INT NOT NULL,
+  PRIMARY KEY (`idVuelo`),
+  INDEX `fk_vuelo_vueloGenerico1_idx` (`idVueloGenerico` ASC),
+  CONSTRAINT `fk_vuelo_vueloGenerico1`
+    FOREIGN KEY (`idVueloGenerico`)
+    REFERENCES `reservas`.`vueloGenerico` (`idVueloGenerico`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `reservas`.`reservas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `reservas`.`reservas` (
+  `idReservas` INT NOT NULL AUTO_INCREMENT,
+  `nReservas` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `apellidos` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(9) NULL,
+  `tarjeta` VARCHAR(45) NULL,
+  `importe` FLOAT UNSIGNED NOT NULL,
+  `idVuelo` INT NOT NULL,
+  PRIMARY KEY (`idReservas`),
+  INDEX `fk_reservas_vuelo1_idx` (`idVuelo` ASC),
+  CONSTRAINT `fk_reservas_vuelo1`
+    FOREIGN KEY (`idVuelo`)
+    REFERENCES `reservas`.`vuelo` (`idVuelo`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

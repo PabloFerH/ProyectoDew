@@ -1,0 +1,48 @@
+-----------------------reservas-----------------------
+USE `reservas` ;
+
+/*INSERT INTO reservas ( idReservas, nReservas, nombre, apellidos, telefono, tarjeta, importe, idVuelo )
+	VALUES (default,1,'Azael','Padrón Benítez','922550000','VISA',50,6);*/
+    
+SELECT * FROM reservas;
+
+-----------------------vuelo-----------------------
+USE `reservas` ;
+
+/*INSERT INTO vuelo ( idVuelo, fecha, plazasLibres, idVueloGenerico )
+	VALUES (default,'26/01/2017',10,3);*/
+    
+SELECT * FROM vuelo;
+
+-----------------------aeropuerto-----------------------
+USE `reservas` ;
+
+/*INSERT INTO aeropuerto ( idAeropuerto, codigo, nombre, categoria, idCiudad, idVueloGenerico )
+	VALUES (default,'001','Aeropuerto de Tenerife Norte',1,1,1);*/
+    
+SELECT * FROM aeropuerto;
+
+
+-----------------------vueloGenerico-----------------------
+USE `reservas` ;
+
+/*INSERT INTO vueloGenerico ( idVueloGenerico, nVuelo, horaSalida, horaLlegada, precio, capacidad, idAerolínea, idAeropuerto )
+	VALUES (default,1,'09:00','10:30',50,500,1,1);*/
+    
+SELECT * FROM vueloGenerico;
+
+----------------------ciudad----------------------
+USE `reservas` ;
+
+/*INSERT INTO ciudad ( idCiudad,nombre,pais )
+	VALUES (default,'La Laguna','España');*/
+    
+SELECT * FROM ciudad;
+
+----------------------aerolínea----------------------
+USE `reservas` ;
+
+/*INSERT INTO aerolínea ( idAerolínea,codigo,nombre )
+	VALUES (default,'001','AirFrance');*/
+    
+SELECT * FROM aerolínea;
